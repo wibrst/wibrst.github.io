@@ -10,18 +10,18 @@
     <meta name="author" content="wibrst.city">
   
   
-    <meta name="description" content="【新增】纹理释放功能，通过RES.destroyRes可以释放掉纹理对于移动游戏来说，内存是寸M寸金，内存占用过大导致出现的各种问题，一直是一些中重度游戏花费精力解决及优化的问题，Egret2.0已经针对该问题加入了释放纹理的重磅功能，让开发者可以根据游戏进程及时释放不相关的资源，从本质上提高了游戏开发过程中对资源的掌控能力。这里用一个简单的例子表明如何使用该功能。加入有一个资源组名为castle">
+    <meta name="description" content="【新增】纹理释放功能，通过RES.destroyRes可以释放掉纹理对于移动游戏来说，内存是寸M寸金，内存占用过大导致出现的各种问题，一直是一些中重度游戏花费精力解决及优化的问题，Egret2.0已经针对该问题加入了释放纹理的重磅功能，让开发者可以根据游戏进程及时释放不相关的资源，从本质上提高了游戏开发过程中对资源的掌控能力。这里用一个简单的例子表明如何使用该功能。加入有一个包含城堡资源的资源组名">
   
-  <meta name="description" content="【新增】纹理释放功能，通过RES.destroyRes可以释放掉纹理对于移动游戏来说，内存是寸M寸金，内存占用过大导致出现的各种问题，一直是一些中重度游戏花费精力解决及优化的问题，Egret2.0已经针对该问题加入了释放纹理的重磅功能，让开发者可以根据游戏进程及时释放不相关的资源，从本质上提高了游戏开发过程中对资源的掌控能力。这里用一个简单的例子表明如何使用该功能。加入有一个资源组名为castle">
+  <meta name="description" content="【新增】纹理释放功能，通过RES.destroyRes可以释放掉纹理对于移动游戏来说，内存是寸M寸金，内存占用过大导致出现的各种问题，一直是一些中重度游戏花费精力解决及优化的问题，Egret2.0已经针对该问题加入了释放纹理的重磅功能，让开发者可以根据游戏进程及时释放不相关的资源，从本质上提高了游戏开发过程中对资源的掌控能力。这里用一个简单的例子表明如何使用该功能。加入有一个包含城堡资源的资源组名">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Egret 2.0 新特性全剖析">
 <meta property="og:url" content="http://city-10.com/cell/egret-2-0-what-s-new/index.html">
 <meta property="og:site_name" content="城市拓荒者">
-<meta property="og:description" content="【新增】纹理释放功能，通过RES.destroyRes可以释放掉纹理对于移动游戏来说，内存是寸M寸金，内存占用过大导致出现的各种问题，一直是一些中重度游戏花费精力解决及优化的问题，Egret2.0已经针对该问题加入了释放纹理的重磅功能，让开发者可以根据游戏进程及时释放不相关的资源，从本质上提高了游戏开发过程中对资源的掌控能力。这里用一个简单的例子表明如何使用该功能。加入有一个资源组名为castle">
-<meta property="og:updated_time" content="2015-06-23T02:45:43.000Z">
+<meta property="og:description" content="【新增】纹理释放功能，通过RES.destroyRes可以释放掉纹理对于移动游戏来说，内存是寸M寸金，内存占用过大导致出现的各种问题，一直是一些中重度游戏花费精力解决及优化的问题，Egret2.0已经针对该问题加入了释放纹理的重磅功能，让开发者可以根据游戏进程及时释放不相关的资源，从本质上提高了游戏开发过程中对资源的掌控能力。这里用一个简单的例子表明如何使用该功能。加入有一个包含城堡资源的资源组名">
+<meta property="og:updated_time" content="2015-06-23T03:43:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Egret 2.0 新特性全剖析">
-<meta name="twitter:description" content="【新增】纹理释放功能，通过RES.destroyRes可以释放掉纹理对于移动游戏来说，内存是寸M寸金，内存占用过大导致出现的各种问题，一直是一些中重度游戏花费精力解决及优化的问题，Egret2.0已经针对该问题加入了释放纹理的重磅功能，让开发者可以根据游戏进程及时释放不相关的资源，从本质上提高了游戏开发过程中对资源的掌控能力。这里用一个简单的例子表明如何使用该功能。加入有一个资源组名为castle">
+<meta name="twitter:description" content="【新增】纹理释放功能，通过RES.destroyRes可以释放掉纹理对于移动游戏来说，内存是寸M寸金，内存占用过大导致出现的各种问题，一直是一些中重度游戏花费精力解决及优化的问题，Egret2.0已经针对该问题加入了释放纹理的重磅功能，让开发者可以根据游戏进程及时释放不相关的资源，从本质上提高了游戏开发过程中对资源的掌控能力。这里用一个简单的例子表明如何使用该功能。加入有一个包含城堡资源的资源组名">
   
     <link rel="alternate" href="/atom.xml" title="城市拓荒者" type="application/atom+xml">
   
@@ -74,13 +74,17 @@
   
   <div class="entry">
     
-      <h3 id="【新增】纹理释放功能，通过RES-destroyRes可以释放掉纹理">【新增】纹理释放功能，通过RES.destroyRes可以释放掉纹理</h3><p>对于移动游戏来说，内存是寸M寸金，内存占用过大导致出现的各种问题，一直是一些中重度游戏花费精力解决及优化的问题，Egret2.0已经针对该问题加入了释放纹理的重磅功能，让开发者可以根据游戏进程及时释放不相关的资源，从本质上提高了游戏开发过程中对资源的掌控能力。<br>这里用一个简单的例子表明如何使用该功能。<br>加入有一个资源组名为<code>castle</code>，其载入代码为：<br><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">RES.loadGroup( <span class="string">"castle"</span> );</span><br></pre></td></tr></table></figure></p>
+      <h3 id="【新增】纹理释放功能，通过RES-destroyRes可以释放掉纹理">【新增】纹理释放功能，通过RES.destroyRes可以释放掉纹理</h3><p>对于移动游戏来说，内存是寸M寸金，内存占用过大导致出现的各种问题，一直是一些中重度游戏花费精力解决及优化的问题，Egret2.0已经针对该问题加入了释放纹理的重磅功能，让开发者可以根据游戏进程及时释放不相关的资源，从本质上提高了游戏开发过程中对资源的掌控能力。<br>这里用一个简单的例子表明如何使用该功能。<br>加入有一个包含城堡资源的资源组名为<code>castle</code>，其载入代码为：<br><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">RES.loadGroup( <span class="string">"castle"</span> );</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <p>则在该组资源不再需要的时候，可以释放掉：<br><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">RES.destroyRes( <span class="string">"castle"</span> );</span><br></pre></td></tr></table></figure></p>
 <h3 id="【修复】IOS纹理过多导致帧频下降问题">【修复】IOS纹理过多导致帧频下降问题</h3><p>在Egret2.0之前，在iOS机型中，由于其本身对纹理的处理方式有较多限制，当使用较大量的纹理就会产生严重的帧数下降，在Egret2.0版本，官方团队已经对这个问题做了专门处理，情况得到明显改善。</p>
-<h3 id="【优化】更好的音乐支持，提升不同浏览器/App的兼容性">【优化】更好的音乐支持，提升不同浏览器/App的兼容性</h3><p>Egret2.0版本内核针对不同平台进行兼容性升级，其中对iOS系统使用先进的WebAudio来实现，Android系统上已经对以往出现的音乐设置循环无法生效的问题进行了修复。</p>
-<h3 id="【新增】native支持Graphics绘图">【新增】native支持Graphics绘图</h3><h3 id="【优化】全新的热更新机制">【优化】全新的热更新机制</h3><p>Android和iOS中的热更新的使用方法跟之前差别不大，但是主要</p>
-<h3 id="【新增】DragonBones支持4-0数据格式">【新增】DragonBones支持4.0数据格式</h3><h3 id="【优化】减少gui模块发布体积">【优化】减少gui模块发布体积</h3><h3 id="【优化】提升引擎及第三方库编译速度">【优化】提升引擎及第三方库编译速度</h3><h3 id="【新增】数据统计_DataEyeSDK">【新增】数据统计 DataEyeSDK</h3>
+<h3 id="【优化】更好的音乐支持，提升不同浏览器/App的兼容性">【优化】更好的音乐支持，提升不同浏览器/App的兼容性</h3><p>Egret2.0版本内核针对不同平台进行兼容性升级，其中对iOS系统使用先进的WebAudio来实现，Android系统上已经对以往出现的音乐设置循环无法生效的问题进行了修复。当然，我们开发者使用时不必关心这些是怎么实现的，因为API是完全一致的。<br>播放音乐重复，只需要在play设置参数为true即可：<br><figure class="highlight"><table><tr><td class="code"><pre><span class="line">var sound:egret.Sound = RES.getRes(&#34;sound&#34;);&#10;sound.play( true );</span><br></pre></td></tr></table></figure></p>
+<p>另外新增了播放完成事件，以触发可能需要的游戏逻辑。用法如下：<br><figure class="highlight"><table><tr><td class="code"><pre><span class="line">var sound:egret.Sound = RES.getRes(&#34;sound&#34;);&#10;sound.addEventListener( egret.SoundEvent.SOUND_COMPLETE, function()&#123;&#10;    console.log( &#34;play completed!&#34; );&#10;&#125;, this )&#10;sound.play();</span><br></pre></td></tr></table></figure></p>
+<h3 id="【新增】native支持Graphics绘图">【新增】native支持Graphics绘图</h3><p>之前版本的Graphics绘图功能在H5版本和Native/Runtime版本存在较大差别，H5上的功能比较完整，Native/Runtime版本则没有完全实现绘线等功能。 Egret2.0彻底解决了这一问题。这些功能在打包或接入Runtim后都可以使用了：<br><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> shape:egret.Shape = <span class="keyword">new</span> egret.Shape;</span><br><span class="line"></span><br><span class="line">shape.graphics.beginFill(<span class="number">0x00ff00</span>);</span><br><span class="line">shape.graphics.drawCircle( <span class="number">100</span>, <span class="number">100</span>, <span class="number">30</span>);</span><br><span class="line">shape.graphics.endFill();</span><br><span class="line"></span><br><span class="line">shape.graphics.beginFill(<span class="number">0x00ff00</span>);</span><br><span class="line">shape.graphics.drawEllipse( <span class="number">100</span>, <span class="number">200</span>, <span class="number">80</span>, <span class="number">60</span> );</span><br><span class="line">shape.graphics.endFill();</span><br><span class="line"></span><br><span class="line"><span class="keyword">this</span>._container.addChild( shape );</span><br></pre></td></tr></table></figure></p>
+<p>编译运行，则会显示两个上下排列的圆形和椭圆形。</p>
+<h3 id="【优化】全新的热更新机制">【优化】全新的热更新机制</h3><p>Android和iOS中的热更新的使用方法跟之前差别不大，具体可以进行比较：<a href="http://edn.egret.com/cn/index.php?g=&amp;m=article&amp;a=index&amp;id=306&amp;terms1_id=25&amp;terms2_id=39" target="_blank" rel="external">Egret2.0热更新</a>  <a href="http://edn.egret.com/cn/index.php?g=&amp;m=article&amp;a=index&amp;id=170&amp;terms1_id=25&amp;terms2_id=39" target="_blank" rel="external">旧版本热更新</a>。但是对热更新中使用的zip包的格式已经进行了优化，除对配置文件信息合并外，还提供了资源保护方面的措施——将资源文件名称混淆，对于大量资源的游戏提供了一定的保护功能。</p>
+<h3 id="【新增】DragonBones支持4-0数据格式">【新增】DragonBones支持4.0数据格式</h3><p>随Egret2.0同时发布的还有白鹭的重磅产品DragonBones4.0(以下简称DB4)，该版本已经完全脱离Flash，成为完全独立的骨骼动画编辑器。并兼容之前用Flash开发的内容。<a href="http://edn.egret.com/cn/index.php?g=&amp;m=article&amp;a=index&amp;id=364&amp;terms1_id=85&amp;terms2_id=94&amp;t3_id=364" target="_blank" rel="external">到这里更深入了解DB4</a><br>DB4中的数据格式较之前有较大变化，<br>数据导入快速指南：之前的数据格式为3.0，在DB4安装目录中有一个other目录，其中包含最后一版的designpanel，安装该版本designpanel，导出数据(不包含swf的格式均可)，在DB4都可以直接导入。</p>
+<h3 id="【优化】减少gui模块发布体积">【优化】减少gui模块发布体积</h3><h3 id="【优化】提升引擎及第三方库编译速度">【优化】提升引擎及第三方库编译速度</h3><h3 id="【新增】数据统计_DataEyeSDK">【新增】数据统计 DataEyeSDK</h3>
     
   </div>
   <footer>
