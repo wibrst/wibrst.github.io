@@ -18,7 +18,7 @@
 <meta property="og:url" content="http://city-10.com/cell/egret-2-0-what-s-new/index.html">
 <meta property="og:site_name" content="城市拓荒者">
 <meta property="og:description" content="【新增】纹理释放功能，通过RES.destroyRes可以释放掉纹理对于移动游戏来说，内存是寸M寸金，内存占用过大导致出现的各种问题，一直是一些中重度游戏花费精力解决及优化的问题，Egret2.0已经针对该问题加入了释放纹理的重磅功能，让开发者可以根据游戏进程及时释放不相关的资源，从本质上提高了游戏开发过程中对资源的掌控能力。这里用一个简单的例子表明如何使用该功能。加入有一个资源组名为castle">
-<meta property="og:updated_time" content="2015-06-23T01:47:09.000Z">
+<meta property="og:updated_time" content="2015-06-23T02:45:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Egret 2.0 新特性全剖析">
 <meta name="twitter:description" content="【新增】纹理释放功能，通过RES.destroyRes可以释放掉纹理对于移动游戏来说，内存是寸M寸金，内存占用过大导致出现的各种问题，一直是一些中重度游戏花费精力解决及优化的问题，Egret2.0已经针对该问题加入了释放纹理的重磅功能，让开发者可以根据游戏进程及时释放不相关的资源，从本质上提高了游戏开发过程中对资源的掌控能力。这里用一个简单的例子表明如何使用该功能。加入有一个资源组名为castle">
@@ -77,8 +77,10 @@
       <h3 id="【新增】纹理释放功能，通过RES-destroyRes可以释放掉纹理">【新增】纹理释放功能，通过RES.destroyRes可以释放掉纹理</h3><p>对于移动游戏来说，内存是寸M寸金，内存占用过大导致出现的各种问题，一直是一些中重度游戏花费精力解决及优化的问题，Egret2.0已经针对该问题加入了释放纹理的重磅功能，让开发者可以根据游戏进程及时释放不相关的资源，从本质上提高了游戏开发过程中对资源的掌控能力。<br>这里用一个简单的例子表明如何使用该功能。<br>加入有一个资源组名为<code>castle</code>，其载入代码为：<br><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">RES.loadGroup( <span class="string">"castle"</span> );</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <p>则在该组资源不再需要的时候，可以释放掉：<br><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">RES.destroyRes( <span class="string">"castle"</span> );</span><br></pre></td></tr></table></figure></p>
-<p>【修复】IOS纹理过多导致帧频下降问题<br>【优化】更好的音乐支持，提升不同浏览器/App的兼容性<br>【新增】native支持Graphics绘图<br>【优化】全新的热更新机制<br>【新增】DragonBones支持4.0数据格式<br>【优化】减少gui模块发布体积<br>【优化】提升引擎及第三方库编译速度<br>【新增】数据统计 DataEyeSDK</p>
-
+<h3 id="【修复】IOS纹理过多导致帧频下降问题">【修复】IOS纹理过多导致帧频下降问题</h3><p>在Egret2.0之前，在iOS机型中，由于其本身对纹理的处理方式有较多限制，当使用较大量的纹理就会产生严重的帧数下降，在Egret2.0版本，官方团队已经对这个问题做了专门处理，情况得到明显改善。</p>
+<h3 id="【优化】更好的音乐支持，提升不同浏览器/App的兼容性">【优化】更好的音乐支持，提升不同浏览器/App的兼容性</h3><p>Egret2.0版本内核针对不同平台进行兼容性升级，其中对iOS系统使用先进的WebAudio来实现，Android系统上已经对以往出现的音乐设置循环无法生效的问题进行了修复。</p>
+<h3 id="【新增】native支持Graphics绘图">【新增】native支持Graphics绘图</h3><h3 id="【优化】全新的热更新机制">【优化】全新的热更新机制</h3><p>Android和iOS中的热更新的使用方法跟之前差别不大，但是主要</p>
+<h3 id="【新增】DragonBones支持4-0数据格式">【新增】DragonBones支持4.0数据格式</h3><h3 id="【优化】减少gui模块发布体积">【优化】减少gui模块发布体积</h3><h3 id="【优化】提升引擎及第三方库编译速度">【优化】提升引擎及第三方库编译速度</h3><h3 id="【新增】数据统计_DataEyeSDK">【新增】数据统计 DataEyeSDK</h3>
     
   </div>
   <footer>
