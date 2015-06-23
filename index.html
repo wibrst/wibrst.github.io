@@ -1,0 +1,249 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>城市拓荒者</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="wibrst.city">
+  
+  
+  <meta name="description" content="city | wibrst | egret |">
+<meta property="og:type" content="website">
+<meta property="og:title" content="城市拓荒者">
+<meta property="og:url" content="http://city-10.com/index.html">
+<meta property="og:site_name" content="城市拓荒者">
+<meta property="og:description" content="city | wibrst | egret |">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="城市拓荒者">
+<meta name="twitter:description" content="city | wibrst | egret |">
+  
+    <link rel="alternate" href="/atom.xml" title="城市拓荒者" type="application/atom+xml">
+  
+  
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">城市拓荒者</a></h1>
+    <p><a href="/"></a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+      
+        <li><a href="/atom.xml">RSS</a></li>
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</header>
+    <div class="content">
+
+
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/cell/git-submodule-dereference/">
+  <time datetime="2015-06-23T00:09:03.000Z">
+    2015-06-23
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/cell/git-submodule-dereference/">git解除子模块的引用</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p>在git管理的项目中经常使用第三方git库或资源，而由于各种原因这些git库或资源(下文称为子模块)需要进行修改才能达到我们希望的效果。<br>这些子模块将会完成。<br>依次执行如下命令，即可解除。</p>
+<p>git rm —cached submodule_path # 删除子模块引用头(没有斜杠号)<br>git rm .gitmodules             # 如有一个以上的子模块, 需要编辑这个文件,而不是删除!<br>rm -rf submodule_path/.git     # 确保你有备份!!<br>git add submodule_path         # 添加文件,而不是提交参考<br>git commit -m “remove submodule”</p>
+<p>参考 <a href="http://stackoverflow.com/questions/1759587/un-submodule-a-git-submodule" target="_blank" rel="external">un-submodule a git submodule</a> 。</p>
+
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/cell/about/">
+  <time datetime="2015-06-22T22:45:45.000Z">
+    2015-06-23
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/cell/about/">about</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p>我叫王建文，现在白鹭担任解决方案顾问。<br>曾长期从事AS3相关开发。</p>
+<p>目前先简单介绍一下，有时间再补充。</p>
+
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/cell/egret-2-0-what-s-new/">
+  <time datetime="2015-06-19T10:45:15.000Z">
+    2015-06-19
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/cell/egret-2-0-what-s-new/">Egret 2.0 新特性全剖析</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h3 id="【新增】纹理释放功能，通过RES-destroyRes可以释放掉纹理">【新增】纹理释放功能，通过RES.destroyRes可以释放掉纹理</h3><p>对于移动游戏来说，内存是寸M寸金，内存占用过大导致出现的各种问题，一直是一些中重度游戏花费精力解决及优化的问题，Egret2.0已经针对该问题加入了释放纹理的重磅功能，让开发者可以根据游戏进程及时释放不相关的资源，从本质上提高了游戏开发过程中对资源的掌控能力。<br>这里用一个简单的例子表明如何使用该功能。<br>加入有一个资源组名为<code>castle</code>，其载入代码为：<br><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">RES.loadGroup( <span class="string">"castle"</span> );</span><br></pre></td></tr></table></figure></p>
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/cell/egret-2-0-what-s-new/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/cell/the-first-hexo/">
+  <time datetime="2015-06-17T10:42:04.000Z">
+    2015-06-17
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/cell/the-first-hexo/">这个博客网站是如何建立的</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <blockquote>
+<p>本文正在撰写中，进度31%，目前不保证完整性及正确性</p>
+</blockquote>
+<h4 id="缘起">缘起</h4><p>说起blog的第一篇文章，大家都有自己的主张。<br>但是我认为第一篇给大家分享如何建立这个博客，更有意义，让有同样渴望的童鞋都能像我一样在浩瀚的网络中营造一个属于自己的窝。</p>
+<h4 id="主要流程介绍">主要流程介绍</h4><p>以GitHub作为主机，用于发布网站页面的功能称为<a href="https://help.github.com/categories/github-pages-basics/">GitHub Pages</a>。</p>
+<p>参考教程：<a href="http://blog.sina.com.cn/s/blog_617ccc0c0101h84p.html">如何搭建一个独立博客——简明Github Pages与Hexo教程</a></p>
+<p>在本机建立好github环境：<br>
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/cell/the-first-hexo/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+
+  <nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2015 <a href="/">wibrst.city</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>

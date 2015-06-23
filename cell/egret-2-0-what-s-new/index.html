@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>Egret 2.0 新特性全剖析 | 城市拓荒者</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="wibrst.city">
+  
+  
+    <meta name="description" content="【新增】纹理释放功能，通过RES.destroyRes可以释放掉纹理对于移动游戏来说，内存是寸M寸金，内存占用过大导致出现的各种问题，一直是一些中重度游戏花费精力解决及优化的问题，Egret2.0已经针对该问题加入了释放纹理的重磅功能，让开发者可以根据游戏进程及时释放不相关的资源，从本质上提高了游戏开发过程中对资源的掌控能力。这里用一个简单的例子表明如何使用该功能。加入有一个资源组名为castle">
+  
+  <meta name="description" content="【新增】纹理释放功能，通过RES.destroyRes可以释放掉纹理对于移动游戏来说，内存是寸M寸金，内存占用过大导致出现的各种问题，一直是一些中重度游戏花费精力解决及优化的问题，Egret2.0已经针对该问题加入了释放纹理的重磅功能，让开发者可以根据游戏进程及时释放不相关的资源，从本质上提高了游戏开发过程中对资源的掌控能力。这里用一个简单的例子表明如何使用该功能。加入有一个资源组名为castle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Egret 2.0 新特性全剖析">
+<meta property="og:url" content="http://city-10.com/cell/egret-2-0-what-s-new/index.html">
+<meta property="og:site_name" content="城市拓荒者">
+<meta property="og:description" content="【新增】纹理释放功能，通过RES.destroyRes可以释放掉纹理对于移动游戏来说，内存是寸M寸金，内存占用过大导致出现的各种问题，一直是一些中重度游戏花费精力解决及优化的问题，Egret2.0已经针对该问题加入了释放纹理的重磅功能，让开发者可以根据游戏进程及时释放不相关的资源，从本质上提高了游戏开发过程中对资源的掌控能力。这里用一个简单的例子表明如何使用该功能。加入有一个资源组名为castle">
+<meta property="og:updated_time" content="2015-06-23T01:47:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Egret 2.0 新特性全剖析">
+<meta name="twitter:description" content="【新增】纹理释放功能，通过RES.destroyRes可以释放掉纹理对于移动游戏来说，内存是寸M寸金，内存占用过大导致出现的各种问题，一直是一些中重度游戏花费精力解决及优化的问题，Egret2.0已经针对该问题加入了释放纹理的重磅功能，让开发者可以根据游戏进程及时释放不相关的资源，从本质上提高了游戏开发过程中对资源的掌控能力。这里用一个简单的例子表明如何使用该功能。加入有一个资源组名为castle">
+  
+    <link rel="alternate" href="/atom.xml" title="城市拓荒者" type="application/atom+xml">
+  
+  
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">城市拓荒者</a></h1>
+    <p><a href="/"></a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+      
+        <li><a href="/atom.xml">RSS</a></li>
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</header>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/cell/egret-2-0-what-s-new/">
+  <time datetime="2015-06-19T10:45:15.000Z">
+    2015-06-19
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title">Egret 2.0 新特性全剖析</h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h3 id="【新增】纹理释放功能，通过RES-destroyRes可以释放掉纹理">【新增】纹理释放功能，通过RES.destroyRes可以释放掉纹理</h3><p>对于移动游戏来说，内存是寸M寸金，内存占用过大导致出现的各种问题，一直是一些中重度游戏花费精力解决及优化的问题，Egret2.0已经针对该问题加入了释放纹理的重磅功能，让开发者可以根据游戏进程及时释放不相关的资源，从本质上提高了游戏开发过程中对资源的掌控能力。<br>这里用一个简单的例子表明如何使用该功能。<br>加入有一个资源组名为<code>castle</code>，其载入代码为：<br><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">RES.loadGroup( <span class="string">"castle"</span> );</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>则在该组资源不再需要的时候，可以释放掉：<br><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">RES.destroyRes( <span class="string">"castle"</span> );</span><br></pre></td></tr></table></figure></p>
+<p>【修复】IOS纹理过多导致帧频下降问题<br>【优化】更好的音乐支持，提升不同浏览器/App的兼容性<br>【新增】native支持Graphics绘图<br>【优化】全新的热更新机制<br>【新增】DragonBones支持4.0数据格式<br>【优化】减少gui模块发布体积<br>【优化】提升引擎及第三方库编译速度<br>【新增】数据统计 DataEyeSDK</p>
+
+    
+  </div>
+  <footer>
+    
+      
+      
+  <div class="tags">
+    <a class="tags-link" href="/tags/egret/">egret</a>, <a class="tags-link" href="/tags/intro/">intro</a>, <a class="tags-link" href="/tags/new/">new</a>
+  </div>
+
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2015 <a href="/">wibrst.city</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>
