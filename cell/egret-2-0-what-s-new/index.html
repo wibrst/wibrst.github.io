@@ -21,7 +21,8 @@
 <meta property="og:site_name" content="城市拓荒者">
 <meta property="og:description" content="大家期待已久的Egret2.0终于出RC1了，但是官方release note对于每个功能的原理和用法还没有具体的阐述，所以这里逐一讲解说明一下。
 【新增】纹理释放功能，通过RES.destroyRes可以释放掉纹理对于移动游戏来说，内存是寸M寸金，内存占用过大导致出现的各种问题，一直是一些中重度游戏花费精力解决及优化的问题，Egret2.0已经针对该问题加入了释放纹理的重磅功能，让开发者可以根据">
-<meta property="og:updated_time" content="2015-06-23T06:45:51.000Z">
+<meta property="og:image" content="http://city-10.com/assets/egret-engine-2.0-rc1-release.jpg">
+<meta property="og:updated_time" content="2015-06-24T10:43:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Egret 2.0 RC1 新特性全剖析">
 <meta name="twitter:description" content="大家期待已久的Egret2.0终于出RC1了，但是官方release note对于每个功能的原理和用法还没有具体的阐述，所以这里逐一讲解说明一下。
@@ -78,7 +79,8 @@
   
   <div class="entry">
     
-      <p>大家期待已久的Egret2.0终于出RC1了，但是<a href="http://bbs.egret-labs.org/forum.php?mod=viewthread&amp;tid=7478&amp;extra=page%3D1" target="_blank" rel="external">官方release note</a>对于每个功能的原理和用法还没有具体的阐述，所以这里逐一讲解说明一下。</p>
+      <p><img src="/assets/egret-engine-2.0-rc1-release.jpg" alt=""></p>
+<p>大家期待已久的Egret2.0终于出RC1了，但是<a href="http://bbs.egret-labs.org/forum.php?mod=viewthread&amp;tid=7478&amp;extra=page%3D1" target="_blank" rel="external">官方release note</a>对于每个功能的原理和用法还没有具体的阐述，所以这里逐一讲解说明一下。</p>
 <h3 id="【新增】纹理释放功能，通过RES-destroyRes可以释放掉纹理">【新增】纹理释放功能，通过RES.destroyRes可以释放掉纹理</h3><p>对于移动游戏来说，内存是寸M寸金，内存占用过大导致出现的各种问题，一直是一些中重度游戏花费精力解决及优化的问题，Egret2.0已经针对该问题加入了释放纹理的重磅功能，让开发者可以根据游戏进程及时释放不相关的资源，从本质上提高了游戏开发过程中对资源的掌控能力。<br>这里用一个简单的例子表明如何使用该功能。<br>加入有一个包含城堡资源的资源组名为<code>castle</code>，其载入代码为：<br><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">RES.loadGroup( <span class="string">"castle"</span> );</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <p>则在该组资源不再需要的时候，可以释放掉：<br><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">RES.destroyRes( <span class="string">"castle"</span> );</span><br></pre></td></tr></table></figure></p>
