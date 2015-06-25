@@ -900,7 +900,7 @@ body {
 }
 .header-inner {
   margin: 0 auto;
-  padding: 100px 0 70px;
+  padding: 70px 0 40px;
   width: 960px;
 }
 .one-column .header-inner {
@@ -1197,7 +1197,7 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #0eacff;
+  background: #d1b5ac;
 }
 .sidebar-nav {
   margin: 0;
@@ -1418,7 +1418,7 @@ body {
   transform: scaleX(1);
 }
 .posts-expand .post-meta {
-  margin: 3px 0 60px 0;
+  margin: 3px 0 40px 0;
   color: #999;
   font-size: 12px;
   text-align: center;
@@ -1514,14 +1514,14 @@ body {
 }
 .posts-expand .post-eof {
   display: block;
-  margin: 160px auto 120px;
+  margin: 30px auto 50px;
   width: 8%;
   height: 1px;
   background: #ccc;
   text-align: center;
 }
 .post-more-link {
-  margin-top: 50px;
+  margin-top: 30px;
 }
 @media (max-width: 767px) {
   .posts-collapse {
