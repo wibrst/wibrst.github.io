@@ -290,7 +290,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 30px 0 15px;
+  margin: 10px 0 10px;
 }
 ul {
   list-style: square;
@@ -1197,7 +1197,7 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9ec763;
+  background: #ffff25;
 }
 .sidebar-nav {
   margin: 0;
@@ -1418,7 +1418,7 @@ body {
   transform: scaleX(1);
 }
 .posts-expand .post-meta {
-  margin: 3px 0 40px 0;
+  margin: 5px 0 10px 0;
   color: #999;
   font-size: 12px;
   text-align: center;
@@ -1514,14 +1514,14 @@ body {
 }
 .posts-expand .post-eof {
   display: block;
-  margin: 30px auto 50px;
+  margin: 20px auto 30px;
   width: 8%;
   height: 1px;
   background: #ccc;
   text-align: center;
 }
 .post-more-link {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 @media (max-width: 767px) {
   .posts-collapse {
