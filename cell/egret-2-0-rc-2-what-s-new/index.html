@@ -174,7 +174,7 @@
 <ul>
 <li>新导入项目或进行第三方模块配置后，用标准编译方法进行引擎编译(<code>egret build -e</code>)</li>
 <li>开发调试迭代过程，进行增量编译(<code>egret quickbuild</code>)</li>
-<li>发布项目前，再进行一次标准编译(<code>egret publish</code>)</li>
+<li>发布项目(<code>egret publish</code>)前，再进行一次标准编译(<code>egret build</code>)</li>
 <li>需要指定参数的编译方式也同样使用标准编译(如<code>egret bulid -runtime native</code>)</li>
 </ul>
 <h5 id="注意">注意</h5><p>需要注意的一点，就是增量编译的分析过程与标准编译不同，标准编译会分析每个ts类源代码中对其他ts类的引用，从文档类开始分析，因此项目中没有用到的类标准编译会忽略。<br>而增量编译完全忽略源代码ts类之间的引用关系，直接进行扁平式编译。</p>
