@@ -45,7 +45,7 @@
 
 
 
-  <title> git 用法拾零 // 城市拓荒者 </title>
+  <title> Egret 2.0 RC2 版本发布详解 // 城市拓荒者 </title>
 </head>
 
 <body>
@@ -132,7 +132,7 @@
           
           
             
-              git 用法拾零
+              Egret 2.0 RC2 版本发布详解
             
           
         </h1>
@@ -140,7 +140,7 @@
 
       <div class="post-meta">
         <span class="post-time">
-          發表於 2015-06-23
+          發表於 2015-07-02
         </span>
 
         
@@ -149,8 +149,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/cell/git-usage-collection/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="cell/git-usage-collection/"></span>
+            <a href="/cell/egret-2-0-rc-2-what-s-new/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="cell/egret-2-0-rc-2-what-s-new/"></span>
             </a>
           </span>
           
@@ -164,10 +164,29 @@
       
 
       
-        <h4 id="git修改未push的提交">git修改未push的提交</h4><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git commit --amend -m "New commit message"</span><br></pre></td></tr></table></figure>
-<p>已经push的提交，也可以修改，但是破坏库的风险很大，用之请慎之又慎！<br>参考自 <a href="http://stackoverflow.com/questions/179123/edit-an-incorrect-commit-message-in-git" target="_blank" rel="external">Edit an incorrect commit message in Git</a></p>
-<h4 id="git解除子模块的引用">git解除子模块的引用</h4><p>在git管理的项目中经常使用第三方git库或资源，而由于各种原因这些git库或资源(下文称为子模块)需要进行修改才能达到我们希望的效果。<br>在主git项目中，这些子模块被git clone时将被git建立引用。<br>我们要做的就是首先清除该子模块的引用，然后清理该子模块的.git目录。<br>最后以普通目录的方式添加到主git项目中。<br>依次执行如下命令，即可解除：<br><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git rm --cached submodule_path # 删除子模块引用头(没有斜杠号)</span><br><span class="line">git rm .gitmodules             # 如有一个以上的子模块, 需要编辑这个文件,而不是删除!</span><br><span class="line">rm -rf submodule_path/.git     # 确保你有备份!!</span><br><span class="line">git add submodule_path         # 添加文件,而不是提交参考</span><br><span class="line">git commit -m "remove submodule"</span><br></pre></td></tr></table></figure></p>
-<p>参考自 <a href="http://stackoverflow.com/questions/1759587/un-submodule-a-git-submodule" target="_blank" rel="external">un-submodule a git submodule</a> 。</p>
+        <p><img src="/assets/egret-2-0-rc-2-what-s-new/egret-engine-2.0-rc2-release-760x300.jpg" alt=""></p>
+<p>RC2同样是一次重要的升级。<br>本文首先对这三个亮点进行介绍。再扼要介绍部分改动。</p>
+<h4 id="增量编译">增量编译</h4><p>增量编译是用于开发调试迭代过程中实现零等待编译。即只编译修改或者新增的ts类源代码。</p>
+<h5 id="用法">用法</h5><p>增量编译的用法是：<br><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">egret quickbuild</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>增量编译使用与原先的标准编译(<code>egret build</code>)不同的两种编译方法，无法完全取代标准编译。<br>而且标准编译所支持的引擎编译、指定运行时等选项增量编译均不支持。</p>
+<h5 id="最佳实践">最佳实践</h5><p>实际开发中最佳的开发流程是：</p>
+<ul>
+<li>新导入项目或进行第三方模块配置后，用标准编译方法进行引擎编译(<code>egret build -e</code>)</li>
+<li>开发调试迭代过程，进行增量编译(<code>egret quickbuild</code>)</li>
+<li>发布项目前，再进行一次标准编译(<code>egret publish</code>)</li>
+<li>需要指定参数的编译方式也同样使用标准编译(如<code>egret bulid -runtime native</code>)</li>
+</ul>
+<h5 id="注意">注意</h5><p>需要注意的一点，就是增量编译的分析过程与标准编译不同，标准编译会分析每个ts类源代码中对其他ts类的引用，从文档类开始分析，因此项目中没有用到的类标准编译会忽略。<br>而增量编译完全忽略源代码ts类之间的引用关系，直接进行扁平式编译。</p>
+<h4 id="自动脏矩形">自动脏矩形</h4><p>脏矩形只重绘屏幕发⽣生改变的区域，这在Egret 1.5时代已经实现，但旧版脏矩形需要手(ren)工(rou)设置，对于复杂的游戏来说，用脏矩形优化过程无异于一场噩梦。<br>白鹭官方已经对这部分进行了大刀阔斧的改进，实现了自动脏矩形。<br>熟悉Flash的朋友都知道，这项技术已经在提升Flash Player性能上取得了巨大成功。今天白鹭的产品再次将其应用到旗舰产品Egret和Lark上。脏矩形的工作方式如下图所示：<br><img src="/assets/egret-2-0-rc-2-what-s-new/egret-frameRate-2+1inter.jpg" alt=""><br><img src="/assets/egret-2-0-rc-2-what-s-new/egret-frameRate-3inter.jpg" alt=""><br>红框封闭的区域是脏矩形，也就是说引擎运行时只需要渲染这部分。<br>自动脏矩形，不但可以极大的提高渲染性能，还能尽可能的节省设备电量。另外，当检测到屏幕刷新面积已经到临界点(大约占舞台面积95%)时，直接进入全屏刷新模式，因为这种情况脏矩形已经无法改善渲染性能了。</p>
+<p>注意，由于加入该项功能对Egret内核有大规模的改动，稳定性有待进一步验证。因此并没有在RC2以一键安装方式提供，以防止产品级开发出现意外的问题。白鹭官方考虑到让广大喜欢尝鲜的开发者来体验，在github上提供了专门的<a href="https://github.com/egret-labs/egret-core/tree/dirty" target="_blank" rel="external">渲染架构体验分支</a>。</p>
+<h4 id="动态帧频">动态帧频</h4><p>由于官方推荐保持60fps，2.0 RC2之前漫长的时期，设定帧频还需要用一种类似hack的方法(具体<a href="http://edn.egret.com/cn/index.php?m=page&amp;a=index&amp;id=54" target="_blank" rel="external">官方FAQ</a>有说明)。<br>在2.0 RC2版本，<code>frameRate</code> 再度回归！通过在程序中可以访问stage的位置使用 <code>stage.frameRate</code> 即可以直接设置帧频，并且可以随时改变。<br>目前的版本帧频设置有个限制，只能设置被60整除的帧频，其他数值将会被拟合为符合这个标准的值。</p>
+<h4 id="创建JS项目">创建JS项目</h4><p>广大JS资深开发者期盼的JS创建项目的方式，其实在RC1已经提供，但有些小bug，在本次发布的RC2已经在不同的操作系统可正常使用。<br>创建项目使用：<br><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">egret create_js HelloJS</span><br></pre></td></tr></table></figure></p>
+<p>启动项目使用：<br><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">egret startserver HelloJS</span><br></pre></td></tr></table></figure></p>
+<p>在项目创建时，我们提供了<code>egret.js</code>和<code>egret.min.js</code>，开发者只需在发布时将<code>egret.js</code>切换为<code>egret.min.js</code>即可。<br>由于JS开发者都是资深玩家，因此暂无太多说明，后期白鹭官方会根据开发者反映，推出相应的详细教程。</p>
+<h4 id="其他较小改动">其他较小改动</h4><p>其余功能都是较小的改动，在这里简要说明。</p>
+<h5 id="几何运算模块增强">几何运算模块增强</h5><p><code>Matrix</code>增加了<code>createBox</code>和<code>createGradientBox</code>等一系列API。<br>其中使用<code>createBox</code>方法可以直接定义生成的矩阵的缩放、旋转和平移效果。<br><code>Point</code>增加了<code>interpolate</code>和<code>normalize</code>等高级方法。<br><code>Rectangle</code>也增加了<code>union</code>、<code>intersection</code>等更丰富的操作。</p>
+<h5 id="DragonBones事件派发机制">DragonBones事件派发机制</h5><p>之前的DragonBones采用自身独立的一套事件机制，从这个版本起，已经跟Egret内核统一，使用Egret内核提供的事件机制。<br>比如侦听Armature的事件，在升级到2.0 RC2之后需要添加第三个作用域参数(通常是<code>this</code>)。<br><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> factory = <span class="keyword">new</span> dragonBones.EgretFactory();</span><br><span class="line"><span class="keyword">var</span> armature = factory.buildArmature(<span class="string">"warrior"</span>);</span><br><span class="line">armature.addEventListener( dragonBones.ArmatureEvent.Z_ORDER_UPDATED</span><br><span class="line">	, <span class="keyword">this</span>.zUpdateHandler</span><br><span class="line">	, <span class="keyword">this</span>  );</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -179,13 +198,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/cell/direct-del-wx-cache/">Android系统中直接删除微信中浏览器缓存的方法</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/cell/egret-2-0-what-s-new/">Egret 2.0 RC1 新特性全剖析</a>
+              <a href="/cell/direct-del-wx-cache/">Android系统中直接删除微信中浏览器缓存的方法</a>
             
           </div>
         </div>
@@ -228,8 +245,8 @@
     
       <div class="comments" id="comments">
         
-          <div class="ds-thread" data-thread-key="cell/git-usage-collection/"
-               data-title="git 用法拾零" data-url="http://city-10.com/cell/git-usage-collection/">
+          <div class="ds-thread" data-thread-key="cell/egret-2-0-rc-2-what-s-new/"
+               data-title="Egret 2.0 RC2 版本发布详解" data-url="http://city-10.com/cell/egret-2-0-rc-2-what-s-new/">
           </div>
         
       </div>
@@ -314,7 +331,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#git修改未push的提交"><span class="nav-number">1.</span> <span class="nav-text">git修改未push的提交</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git解除子模块的引用"><span class="nav-number">2.</span> <span class="nav-text">git解除子模块的引用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#增量编译"><span class="nav-number">1.</span> <span class="nav-text">增量编译</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#用法"><span class="nav-number">1.1.</span> <span class="nav-text">用法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#最佳实践"><span class="nav-number">1.2.</span> <span class="nav-text">最佳实践</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#注意"><span class="nav-number">1.3.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自动脏矩形"><span class="nav-number">2.</span> <span class="nav-text">自动脏矩形</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态帧频"><span class="nav-number">3.</span> <span class="nav-text">动态帧频</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建JS项目"><span class="nav-number">4.</span> <span class="nav-text">创建JS项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他较小改动"><span class="nav-number">5.</span> <span class="nav-text">其他较小改动</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#几何运算模块增强"><span class="nav-number">5.1.</span> <span class="nav-text">几何运算模块增强</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#DragonBones事件派发机制"><span class="nav-number">5.2.</span> <span class="nav-text">DragonBones事件派发机制</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
