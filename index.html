@@ -134,6 +134,76 @@
           
           
             
+              <a class="post-title-link" href="/cell/google-mirrors/">
+                google-mirrors
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          發表於 2015-07-29
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/cell/google-mirrors/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="cell/google-mirrors/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h3 id="Google_镜像站搜集">Google 镜像站搜集</h3><p>由于内容本身的性质，就不发原链了。大家从内心默默感谢就是了~<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/cell/google-mirrors/#more">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/cell/egret-2-0-rc-2-what-s-new/">
                 Egret 2.0 RC2 版本发布详解
               </a>
@@ -313,14 +383,16 @@
 
       
         
-          <h4 id="如何_cancel_一个_git_add。">如何 cancel 一个 git add。</h4><p>用法出奇的简单：<br><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git reset</span><br><span class="line">```      </span><br><span class="line">但是基于某些原因，你可能需要用到：</span><br><span class="line">``` <span class="built_in">cmd</span></span><br><span class="line">git rm --cached &lt;added_file_to_undo&gt;</span><br></pre></td></tr></table></figure></p>
-<p>参考自<a href="http://stackoverflow.com/questions/348170/undo-git-add-before-commit" target="_blank" rel="external">Undo ‘git add’ before commit</a>    </p>
-<h4 id="建立新仓库后报错：src_refspec_master_does_not_match_any-">建立新仓库后报错：src refspec master does not match any.</h4><p> 具体发生在 初建立库，并且执行 git push -u origin master 的时候。返回：<br><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="function">error: <span class="title">src</span> <span class="title">refspec</span> <span class="title">master</span> <span class="title">does</span> <span class="title">not</span> <span class="title">match</span> <span class="title">any</span>.</span><br><span class="line"><span class="title">error</span>: <span class="title">failed</span> <span class="title">to</span> <span class="title">push</span> <span class="title">some</span> <span class="title">refs</span> <span class="title">to</span> '&lt;<span class="title">MY</span>-<span class="title">URL</span>&gt;'</span><br><span class="line">```     </span><br><span class="line">其实原因很简单，因为你在 <span class="title">push</span> 之前没有任何 <span class="title">commit</span> 。 </span><br><span class="line">参考自[<span class="title">Why</span> <span class="title">does</span> <span class="title">my</span> '<span class="title">git</span> <span class="title">branch</span>' <span class="title">have</span> <span class="title">no</span> <span class="title">master</span>?](<span class="title">http</span>://<span class="title">stackoverflow.com</span>/<span class="title">questions</span>/3623755/<span class="title">why</span>-<span class="title">does</span>-<span class="title">my</span>-<span class="title">git</span>-<span class="title">branch</span>-<span class="title">have</span>-<span class="title">no</span>-<span class="title">master</span>)    </span><br><span class="line"></span><br><span class="line">#### <span class="title">git</span>修改未<span class="title">push</span>的提交</span><br><span class="line">``` <span class="title">cmd</span></span><br><span class="line"><span class="title">git</span> <span class="title">commit</span> --<span class="title">amend</span> -<span class="title">m</span> "<span class="title">New</span> <span class="title">commit</span> <span class="title">message</span>"</span></span><br></pre></td></tr></table></figure></p>
-<p>已经push的提交，也可以修改，但是破坏库的风险很大，用之请慎之又慎！<br>参考自 <a href="http://stackoverflow.com/questions/179123/edit-an-incorrect-commit-message-in-git" target="_blank" rel="external">Edit an incorrect commit message in Git</a>     </p>
-<h4 id="git解除子模块的引用">git解除子模块的引用</h4><p>在git管理的项目中经常使用第三方git库或资源，而由于各种原因这些git库或资源(下文称为子模块)需要进行修改才能达到我们希望的效果。<br>在主git项目中，这些子模块被git clone时将被git建立引用。<br>我们要做的就是首先清除该子模块的引用，然后清理该子模块的.git目录。<br>最后以普通目录的方式添加到主git项目中。<br>依次执行如下命令，即可解除：<br><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git rm --cached submodule_path # 删除子模块引用头(没有斜杠号)</span><br><span class="line">git rm .gitmodules             # 如有一个以上的子模块, 需要编辑这个文件,而不是删除!</span><br><span class="line">rm -rf submodule_path/.git     # 确保你有备份!!</span><br><span class="line">git add submodule_path         # 添加文件,而不是提交参考</span><br><span class="line">git commit -m "remove submodule"</span><br></pre></td></tr></table></figure></p>
-<p>参考自 <a href="http://stackoverflow.com/questions/1759587/un-submodule-a-git-submodule" target="_blank" rel="external">un-submodule a git submodule</a> 。</p>
-<h4 id="git_设定分支">git 设定分支</h4><p>使用如下代码设置分支上游对应关系<br><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git branch --<span class="keyword">set</span>-upstream-to=origin/master master</span><br><span class="line">Branch master <span class="keyword">set</span> up to track remote branch master from origin.</span><br></pre></td></tr></table></figure></p>
-
+          <h3 id="如何_cancel_一个_git_add。">如何 cancel 一个 git add。</h3><p>用法出奇的简单：   </p>
+<pre><code><span class="title">git</span> reset
+</code></pre><p>但是基于某些原因，你可能需要用到：<br><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git rm --cached &lt;added_file_to_undo&gt;</span><br></pre></td></tr></table></figure></p>
+<p>参考自<a href="http://stackoverflow.com/questions/348170/undo-git-add-before-commit">Undo ‘git add’ before commit</a>    </p>
+<h3 id="建立新仓库后报错：src_refspec_master_does_not_match_any-">建立新仓库后报错：src refspec master does not match any.</h3>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/cell/git-usage-collection/#more">
+              閱讀全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -523,7 +595,7 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
