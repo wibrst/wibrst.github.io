@@ -455,7 +455,8 @@
 
       
         
-          <h3 id="如何_cancel_一个_git_add。">如何 cancel 一个 git add。</h3><p>用法出奇的简单：   </p>
+          <h3 id="清理未跟踪的文件">清理未跟踪的文件</h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 删除 untracked files</span></span><br><span class="line">git clean -f</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 连 untracked 的目录也一起删掉</span></span><br><span class="line">git clean -fd</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 连 gitignore 的untrack 文件/目录也一起删掉 （慎用，一般这个是用来删掉编译出来的 .o之类的文件用的）</span></span><br><span class="line">git clean -xfd</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 在用上述 git clean 前，墙裂建议加上 -n 参数来先看看会删掉哪些文件，防止重要文件被误删</span></span><br><span class="line">git clean -nxfd</span><br><span class="line">git clean -nf</span><br><span class="line">git clean -nfd</span><br></pre></td></tr></table></figure>
+<h3 id="如何_cancel_一个_git_add。">如何 cancel 一个 git add。</h3><p>用法出奇的简单：   </p>
 <pre><code><span class="title">git</span> reset
 </code></pre><p>但是基于某些原因，你可能需要用到：<br><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">git rm --cached &lt;added_file_to_undo&gt;</span><br></pre></td></tr></table></figure></p>
 <p>参考自<a href="http://stackoverflow.com/questions/348170/undo-git-add-before-commit">Undo ‘git add’ before commit</a>    </p>
