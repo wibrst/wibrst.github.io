@@ -45,7 +45,7 @@
 
 
 
-  <title> 这个博客网站是如何建立的 // 城市拓荒者 </title>
+  <title> 这个博客网站是如何建立的 // -- 城市拓荒者 -- </title>
 </head>
 
 <body>
@@ -70,7 +70,7 @@
       <span class="logo">
         <i class="icon-logo"></i>
       </span>
-      <span class="site-title">城市拓荒者</span>
+      <span class="site-title">-- 城市拓荒者 --</span>
   </a>
   <span class="logo-line-after"><i></i></span>
 </h1>
@@ -175,7 +175,10 @@
 <p>偶的ssh地址： git@github.com:wibrst/wibrst.github.io.git</p>
 <h4 id="最佳实践之草稿">最佳实践之草稿</h4><p>‘’’hexo n draft “帖子名称”‘’’ 这是新建一个草稿<br>‘’’hexo s -d’’’ 这是在本地服务器让草稿显示出来，用于测试草稿<br>‘’’hexo p “帖子名称”‘’’ 这是发布一个草稿，或理解为升级为帖子<br>在网站级别’’’_config.yml’’’中’’’render_drafts’’’的作用是控制 ‘’’hexo n’’’ 命令是否生成draft下的md内容为html页面。<br>这是至关重要的开关，注意只能在本地预览时，打开，部署时一定不要忘记先关掉这个开关，以免发布草稿到你的远程网站！<br>另外，也有你已经设置为post的文章，但由于某些原因不希望发布，那很简单，只要把扩展名’’’md’’’随意改下即可，我一般改成’’’-md’’’，然后希望发布时，再改回即可！</p>
 <h4 id="最佳实践之服务器">最佳实践之服务器</h4><p>‘’’hexo s’’’ 将会生成一个死站！就是你做了一些修改后，’’’hexo g’’’ 重新生成，但是refresh页面，没有任何变化！<br>而运行这个命令我们通常是要修改页面的，所以我们正常使用应该加个参数：’’’hexo s -s’’’ ，这样我们’’’hexo g’’’后可以随时refresh看到变化。</p>
-<h4 id="更新命令">更新命令</h4><h4 id="参考帖子">参考帖子</h4><p><a href="http://wangwanggame.com/2015/01/26/blog/Hexo-命令/" target="_blank" rel="external">Hexo-命令</a></p>
+<h4 id="更新命令">更新命令</h4><pre><code><span class="built_in">npm</span> install hexo -g <span class="comment">#安装  </span>
+<span class="built_in">npm</span> update hexo -g <span class="comment">#升级  </span>
+hexo init <span class="comment">#初始化</span>
+</code></pre><h4 id="参考帖子">参考帖子</h4><p><a href="http://wangwanggame.com/2015/01/26/blog/Hexo-命令/" target="_blank" rel="external">Hexo-命令</a></p>
 <h4 id="搞定！">搞定！</h4><p>如果这篇文章对大家有所作用，那么你的回帖就是最好的感谢，我也首先谢谢你的关注！</p>
 
       
@@ -283,7 +286,7 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>

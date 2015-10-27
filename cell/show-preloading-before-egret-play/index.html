@@ -45,7 +45,7 @@
 
 
 
-  <title> Android系统中直接删除微信中浏览器缓存的方法 // -- 城市拓荒者 -- </title>
+  <title> 在Egret程序载入之前显示preloading // -- 城市拓荒者 -- </title>
 </head>
 
 <body>
@@ -132,7 +132,7 @@
           
           
             
-              Android系统中直接删除微信中浏览器缓存的方法
+              在Egret程序载入之前显示preloading
             
           
         </h1>
@@ -140,7 +140,7 @@
 
       <div class="post-meta">
         <span class="post-time">
-          發表於 2015-06-24
+          發表於 2015-10-27
         </span>
 
         
@@ -149,8 +149,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/cell/direct-del-wx-cache/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="cell/direct-del-wx-cache/"></span>
+            <a href="/cell/show-preloading-before-egret-play/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="cell/show-preloading-before-egret-play/"></span>
             </a>
           </span>
           
@@ -164,8 +164,35 @@
       
 
       
-        <p>对于经常使用微信测试的开发者来说，微信最恶心的地方就是无法清理浏览器缓存，那个通用什么的里边也都是些不痛不痒的。</p>
-<p>那么，在Android系统，可以非常简单的清除这些垃圾：<a id="more"></a>直接删除 data/data/com.tencent.mm/app_webview/Cache，什么都好了！</p>
+        <p>对网络游戏有相当经验的开发者都很熟悉 loading 的重要性，特别是在游戏的资源体积较大时。    </p>
+<p>然而到目前(2015年10月27日，Egret最新版2.5.3)为止，Egret程序在开始运行之前，是无法显示任何内容的。那么问题来了，如果程序本身的 size 灰常大，那么进入游戏之前，用户岂不是要一直盯着乌漆墨黑的网页背景底色？    </p>
+<p>事实上，这是开发者提出过的问题，所以我认为有必要专门提供一个解决方案。    </p>
+<h4 id="显示_preloading_图片">显示 preloading 图片</h4><p>实际上思路比较简单，那就是在Egret程序开始运行之前显示一张 <code>preloading</code> 动画图片，让用户知道，这个页面没挂掉。然后在 Egret 程序开始运行的时候，隐藏掉该图片。   </p>
+<p>当然更好的体验是提供加载进度，不过我们首先从单独的图片做起。   <a id="more"></a></p>
+<p>首先，我们有一个现成的 Egret 2.5.3 项目。    </p>
+<p>准备这样一张有动画效果的 loading 图片：<br><img src="/assets/show-preloading-before-egret-play/preloading.gif" alt=""><br>放到项目的 resource/assets 目录中。   </p>
+<p>在项目的 index.html 文件中加入一个div标签，用来显示这个图片：</p>
+<pre><code class="HTML"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"preloading"</span>&gt;</span><span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"resource/assets/preloading.gif"</span> /&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre>
+<p>需要注意的一点，就是这个 <code>div</code> 元素的位置。考虑到这个图片在页面中的作用，应该尽可能早的显示这张图片。<br>所以这个包含 <code>preloading</code> 的 <code>div</code> 元素要放到其他的 <code>script</code> 元素之前，这样整个页面就将首先加载 <code>preloading</code> 图片。      </p>
+<p>考虑布局，为了使 <code>preloading</code> 图片显示在正中位置，我们给其设定一些简单的 CSS 样式：</p>
+<pre><code class="CSS"><span class="id">#preloading</span><span class="rules">{
+   <span class="rule"><span class="attribute">z-index</span>:<span class="value"> <span class="number">1000</span></span></span>;
+   <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;
+   <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center</span></span>;
+   <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">40%</span></span></span>;
+   <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">40%</span></span></span>;
+   <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">20%</span></span></span>;
+   <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">20%</span></span></span>;
+}</span>
+</code></pre>
+<p>注意，样式设置中包含一个 <code>z-index</code> 属性，该项设置保证了 Egret程序本身所在的 <code>egret-player</code> 元素出现在页面后不会将 <code>preloading</code> 元素遮挡。因为即便 <code>egret-player</code> 元素已经呈现出 Canvas 元素，也不能保证 Egret 程序的内容就能立即呈现。并且基于这个原因，我们将在整个HTML页面的所有其他脚本执行完毕后再隐藏 <code>preloading</code> 图片。也就是添加到 <code>index.html</code> 最底部的 script 元素中原有代码的后边，成为：   </p>
+<pre><code class="HTML"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="openscad">
+  egret.runEgret<span class="params">()</span>;
+  document.getElementById<span class="params">(<span class="string">"preloading"</span>)</span>.style.display = <span class="string">"none"</span>;
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</code></pre>
+<p>至此，编译运行 Egret 项目，就可以看到在Egret程序内容显示之前会 preloading 图片在转动了。   </p>
 
       
     </div>
@@ -177,13 +204,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/cell/egret-2-0-rc-2-what-s-new/">Egret 2.0 RC2 版本发布详解</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/cell/git-usage-collection/">git 用法拾零</a>
+              <a href="/cell/egret-2-0-3-what-s-new/">Egret 2.0.3 版本发布详解</a>
             
           </div>
         </div>
@@ -226,8 +251,8 @@
     
       <div class="comments" id="comments">
         
-          <div class="ds-thread" data-thread-key="cell/direct-del-wx-cache/"
-               data-title="Android系统中直接删除微信中浏览器缓存的方法" data-url="http://city-10.com/cell/direct-del-wx-cache/">
+          <div class="ds-thread" data-thread-key="cell/show-preloading-before-egret-play/"
+               data-title="在Egret程序载入之前显示preloading" data-url="http://city-10.com/cell/show-preloading-before-egret-play/">
           </div>
         
       </div>
@@ -318,7 +343,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目錄</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#显示_preloading_图片"><span class="nav-number">1.</span> <span class="nav-text">显示 preloading 图片</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
